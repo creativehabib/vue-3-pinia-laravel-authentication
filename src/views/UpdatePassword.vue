@@ -10,7 +10,7 @@ const $toast = useToast();
 const updatePassword = () => {
   axios.post("api/update_password", {
     old_password: auth.user.old_password,
-    password: auth.user.password,
+    new_password: auth.user.new_password,
     password_confirmation: auth.user.password_confirmation
   }).then((res)=>{
     console.log(res)
@@ -37,11 +37,11 @@ const updatePassword = () => {
           </div>
         </div>
         <div>
-          <label for="password" class="block text-sm font-medium leading-6 text-gray-900">New Password</label>
+          <label for="new_password" class="block text-sm font-medium leading-6 text-gray-900">New Password</label>
           <div class="mt-2">
-            <input id="password" v-model="auth.user.password" type="password" placeholder="New Password" autocomplete="password" class="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-            <div v-if="error.errors.password">
-              <span class="text-red-700 text-sm">{{ error.errors.password.toString() }}</span>
+            <input id="new_password" v-model="auth.user.new_password" type="password" placeholder="New Password" autocomplete="new_password" class="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+            <div v-if="error.errors.new_password">
+              <span class="text-red-700 text-sm">{{ error.errors.new_password.toString() }}</span>
             </div>
           </div>
         </div>
